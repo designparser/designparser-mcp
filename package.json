@@ -1,0 +1,62 @@
+{
+  "name": "designparser-mcp",
+  "version": "2.0.0",
+  "description": "Design rules as an MCP server — color, typography, spacing, UX laws, and more. By designparser.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "bin": {
+    "designparser-mcp": "dist/src/index.js"
+  },
+  "files": [
+    "dist",
+    "rules",
+    "RULE_TEMPLATE.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/src/index.js",
+    "validate": "npm run build && npm run validate:built",
+    "validate:built": "node dist/scripts/validate.js",
+    "prepublishOnly": "npm run build",
+    "test": "npm run validate"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "design",
+    "design-rules",
+    "typography",
+    "color",
+    "ux",
+    "designparser",
+    "claude",
+    "cursor",
+    "windsurf"
+  ],
+  "author": "designparser <hello@designparser.de> (https://designparser.de)",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://github.com/designparser/designparser-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/designparser/designparser-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/designparser/designparser-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

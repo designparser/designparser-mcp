@@ -5,6 +5,8 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
+  ListPromptsRequestSchema,
+  GetPromptRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import * as fs from "fs";
 import * as path from "path";
@@ -67,7 +69,7 @@ fs.watch(rulesDir, { recursive: true }, (_event, filename) => {
 
 const server = new Server(
   { name: "designparser-mcp", version },
-  { capabilities: { tools: {} } }
+  { capabilities: { tools: {}, prompts: {} } }
 );
 
 // --- Tool definitions ---
@@ -400,6 +402,136 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     content: [{ type: "text", text: `Unknown tool: ${name}` }],
     isError: true,
   };
+});
+
+// --- Prompt definitions ---
+
+const PROMPTS = [
+  {
+    name: "review-design",
+    description: "Evaluate a design against relevant design rules. Paste a description, HTML/CSS, or Figma output.",
+    arguments: [
+      { name: "context", description: "The design to evaluate — description, HTML/CSS, or Figma output.", required: true },
+      { name: "focus", description: "Optional: narrow to a specific area — color, typography, spacing, interaction, accessibility.", required: false },
+    ],
+  },
+  {
+    name: "suggest-rules",
+    description: "Get the most relevant design rules for a task before you start designing.",
+    arguments: [
+      { name: "task", description: "Describe what you are designing, e.g. 'mobile navigation bar' or 'landing page hero'.", required: true },
+    ],
+  },
+  {
+    name: "search-rules",
+    description: "Search all design rules by keyword.",
+    arguments: [
+      { name: "query", description: "Search term, e.g. 'contrast', 'font size', 'touch target'.", required: true },
+    ],
+  },
+  {
+    name: "get-rule",
+    description: "Get the full deep-dive for a specific design rule by ID.",
+    arguments: [
+      { name: "id", description: "Rule ID, e.g. '60-30-10', 'wcag-contrast', 'millers-law'.", required: true },
+    ],
+  },
+  {
+    name: "list-rules",
+    description: "List all available design rules, optionally filtered by category.",
+    arguments: [
+      { name: "category", description: `Optional category filter: ${Object.keys(CATEGORIES).join(", ")}.`, required: false },
+    ],
+  },
+];
+
+server.setRequestHandler(ListPromptsRequestSchema, async () => ({ prompts: PROMPTS }));
+
+server.setRequestHandler(GetPromptRequestSchema, async (request) => {
+  const { name, arguments: args } = request.params;
+
+  if (name === "review-design") {
+    const context = args?.context ?? "";
+    const focus = args?.focus ? ` Focus on: ${args.focus}.` : "";
+    return {
+      description: PROMPTS.find((p) => p.name === name)!.description,
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Please evaluate this design using the evaluate_design tool.\n\nDesign: ${context}${focus}`,
+          },
+        },
+      ],
+    };
+  }
+
+  if (name === "suggest-rules") {
+    const task = args?.task ?? "";
+    return {
+      description: PROMPTS.find((p) => p.name === name)!.description,
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Please suggest relevant design rules for this task using the suggest_rules_for_context tool.\n\nTask: ${task}`,
+          },
+        },
+      ],
+    };
+  }
+
+  if (name === "search-rules") {
+    const query = args?.query ?? "";
+    return {
+      description: PROMPTS.find((p) => p.name === name)!.description,
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Please search for design rules using the search_rules tool.\n\nQuery: ${query}`,
+          },
+        },
+      ],
+    };
+  }
+
+  if (name === "get-rule") {
+    const id = args?.id ?? "";
+    return {
+      description: PROMPTS.find((p) => p.name === name)!.description,
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Please get the full details for this design rule using the get_rule tool.\n\nRule ID: ${id}`,
+          },
+        },
+      ],
+    };
+  }
+
+  if (name === "list-rules") {
+    const category = args?.category ? ` Filter by category: ${args.category}.` : "";
+    return {
+      description: PROMPTS.find((p) => p.name === name)!.description,
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: `Please list all available design rules using the list_rules tool.${category}`,
+          },
+        },
+      ],
+    };
+  }
+
+  throw new Error(`Prompt not found: ${name}`);
 });
 
 // --- Start ---

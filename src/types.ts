@@ -62,4 +62,9 @@ export const CATEGORIES: Record<string, string> = {
   icons: "Icons",
   visual: "Visual Perception",
   print: "Print & Production",
+  motion: "Motion & Animation",
+  layout: "Layout & Responsive",
+  forms: "Forms & Input",
+  navigation: "Navigation & Structure",
+  media: "Media & Images",
 };

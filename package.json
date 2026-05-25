@@ -1,6 +1,6 @@
 {
   "name": "designparser-mcp",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Design rules as an MCP server — color, typography, spacing, UX laws, and more. By designparser.",
   "type": "module",
   "main": "dist/src/index.js",

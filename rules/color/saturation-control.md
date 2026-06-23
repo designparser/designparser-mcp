@@ -4,6 +4,9 @@ title: "Saturation Control"
 category: "color"
 priority: "medium"
 tldr: "0-25% saturation (HSL) for backgrounds, 25-60% for UI elements, 60-100% for CTAs. These ranges apply to HSL only; OKLCH chroma is not directly comparable."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7595594652166802710?is_from_webapp=1&sender_device=pc&web_id=7517983817683764759"
   instagram: "https://www.instagram.com/p/DTiN7GXDeRX/"

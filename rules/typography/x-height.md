@@ -4,6 +4,10 @@ title: "X-Height"
 category: "typography"
 priority: "medium"
 tldr: "X-height determines perceived size. Over 90% of text is lowercase (Jones & Mewhort, 2004)."
+tags:
+  - typography
+  - reading
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7592729990379195670?is_from_webapp=1&sender_device=pc&web_id=7517983817683764759"
   instagram: "https://www.instagram.com/p/DTOWZeljUhF/"

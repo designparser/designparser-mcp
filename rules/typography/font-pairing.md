@@ -4,6 +4,10 @@ title: "Font Pairing"
 category: "typography"
 priority: "medium"
 tldr: "Matching proportions (x-height, stroke) + clear functional contrast (headline vs. body)."
+tags:
+  - typography
+  - web
+  - branding
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7599774458437504278?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DT_OIgPDMEc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

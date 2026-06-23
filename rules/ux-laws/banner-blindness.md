@@ -4,6 +4,11 @@ title: "Banner Blindness"
 category: "ux-laws"
 priority: "high"
 tldr: "Users ignore anything that looks like an ad, regardless of actual content."
+tags:
+  - ux-law
+  - web
+  - marketing
+  - conversion
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7606070598590106902?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DUq6b_ADWMz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

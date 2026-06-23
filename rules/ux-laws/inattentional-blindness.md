@@ -4,6 +4,9 @@ title: "Inattentional Blindness"
 category: "ux-laws"
 priority: "high"
 tldr: "46-56% of observers miss a fully visible, salient object when engaged in a demanding primary task. Feature-match to the primary task raises detection odds by 5x."
+tags:
+  - ux-law
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7613432532129860886?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVd_sDyCqck/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

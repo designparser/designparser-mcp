@@ -1,7 +1,7 @@
 ---
 id: "wcag-forms"
 title: "WCAG Forms, Errors & Authentication"
-category: "interaction"
+category: "forms"
 priority: "high"
 tldr: "Label every input (SC 3.3.2 A). Identify and describe errors in text (SC 3.3.1 A). Provide correction suggestions when known (SC 3.3.3 AA). Auto-populate previously entered data (SC 3.3.7 A). Authentication must not rely solely on a cognitive test without an alternative (SC 3.3.8 AA)."
 tags:

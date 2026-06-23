@@ -4,6 +4,11 @@ title: "Hick's Law"
 category: "ux-laws"
 priority: "high"
 tldr: "Decision time increases logarithmically with options: RT = a + b x log2(n)."
+tags:
+  - ux-law
+  - web
+  - navigation
+  - interaction
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7586812915014012182"
   instagram: "https://www.instagram.com/p/DSlSHpzjT6j/"

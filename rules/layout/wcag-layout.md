@@ -1,7 +1,7 @@
 ---
 id: "wcag-layout"
 title: "WCAG Layout, Reflow & Pointer Targets"
-category: "interaction"
+category: "layout"
 priority: "high"
 tldr: "Content must not lock to a single orientation unless essential (SC 1.3.4 AA). Content must reflow at 320 CSS px width — equivalent to 400% zoom — without two-dimensional scrolling (SC 1.4.10 AA). Drag functions need a single-pointer alternative (SC 2.5.7 AA). Pointer targets must be at least 24×24 CSS px (SC 2.5.8 AA)."
 tags:

@@ -4,6 +4,10 @@ title: "Icon Alignment"
 category: "icons"
 priority: "medium"
 tldr: "Optical alignment is not mathematical alignment. Circular icons need a slight upward offset."
+tags:
+  - icons
+  - icon
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7603843091379883286?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DUbdEXgjRc5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

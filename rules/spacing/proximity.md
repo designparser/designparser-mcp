@@ -4,6 +4,10 @@ title: "Proximity"
 category: "spacing"
 priority: "high"
 tldr: "Closeness signals relationship. Equal spacing everywhere means no hierarchy."
+tags:
+  - spacing
+  - layout
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7593032381389376790"
   instagram: "https://www.instagram.com/p/DTQcm3EDUSP/"

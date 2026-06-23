@@ -4,6 +4,10 @@ title: "Subitizing"
 category: "ux-laws"
 priority: "medium"
 tldr: "Humans recognize quantities of 1-4 items instantly without counting. Beyond 4, response time increases by roughly 250-350ms per additional item and accuracy drops."
+tags:
+  - ux-law
+  - data-dense
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7628625608481754390?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DXHaZyACi2H/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

@@ -4,6 +4,10 @@ title: "Luminance vs. Lightness"
 category: "color"
 priority: "medium"
 tldr: "HSL-L is not a contrast measure. WCAG 2.2 uses luminance (Y). Yellow and blue at HSL-L 50% produce a 1.07:1 contrast ratio, which is a FAIL."
+tags:
+  - color
+  - web
+  - accessibility
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7608320055180381462?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DU6hZs7jRA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

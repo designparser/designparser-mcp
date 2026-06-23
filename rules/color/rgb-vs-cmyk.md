@@ -4,6 +4,10 @@ title: "RGB vs. CMYK"
 category: "color"
 priority: "medium"
 tldr: "RGB emits light (additive); CMYK absorbs light (subtractive). The sRGB gamut exceeds FOGRA39 across most colors, with the largest gap in saturated greens, blues, and violets."
+tags:
+  - color
+  - web
+  - print
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7613807515763019030?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVglxsBiqbW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

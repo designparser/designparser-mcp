@@ -4,6 +4,8 @@ title: "Dieline and Bleed"
 category: "print"
 priority: "high"
 tldr: "A dieline is the flat 2D document defining every cut, crease, and glue line of a package. Extend all background artwork 3mm (EU) or 3.175mm / 0.125in (US) past the cut line. Errors propagate irreversibly into the physical form."
+tags:
+  - print
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7616399946681437462?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DVylM32CrYN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

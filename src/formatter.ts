@@ -74,5 +74,13 @@ export function formatRule(rule: Rule): string {
 
 export function formatRuleShort(rule: Rule): string {
   const tags = rule.tags?.length ? ` · ${rule.tags.map((t) => `\`${t}\``).join(" ")}` : "";
-  return `### ${rule.title} (\`${rule.id}\`)\n${PRIORITY_LABEL[rule.priority] ?? rule.priority} · **${CATEGORIES[rule.category] ?? rule.category}**${tags}\n${rule.tldr}\n`;
+  const lines = [
+    `### ${rule.title} (\`${rule.id}\`)`,
+    `${PRIORITY_LABEL[rule.priority] ?? rule.priority} · **${CATEGORIES[rule.category] ?? rule.category}**${tags}`,
+    rule.tldr,
+  ];
+  if (rule.inPractice?.[0]) lines.push(`**→** ${rule.inPractice[0]}`);
+  if (rule.keyNumbers?.[0]) lines.push(`**${rule.keyNumbers[0].value}** — ${rule.keyNumbers[0].label}`);
+  lines.push("");
+  return lines.join("\n");
 }

@@ -5,6 +5,10 @@ category: "visual"
 priority: "medium"
 tldr: "Divide the frame into thirds horizontally and vertically. Place key elements on the four intersections.
 The rule prevents weak centered compositions. It does not guarantee strong ones."
+tags:
+  - visual
+  - marketing
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7610500582872190230?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVJpP8eipki/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

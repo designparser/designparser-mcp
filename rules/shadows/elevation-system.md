@@ -4,6 +4,10 @@ title: "Elevation System"
 category: "shadows"
 priority: "medium"
 tldr: "5-6 elevation levels. Higher elevation means larger blur and offset. Use tokens."
+tags:
+  - shadow
+  - web
+  - card
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7598230800563211542"
   instagram: "https://www.instagram.com/p/DT0gnIsjSnp/"

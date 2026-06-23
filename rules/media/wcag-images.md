@@ -1,7 +1,7 @@
 ---
 id: "wcag-images"
 title: "WCAG Non-text Content & Alt Text"
-category: "visual"
+category: "media"
 priority: "critical"
 tldr: "All non-text content must have a text alternative that serves the equivalent purpose (SC 1.1.1 A, EU-relevant: ja). Decorative images get empty alt. Controls get names. CAPTCHAs require a non-visual alternative."
 tags:

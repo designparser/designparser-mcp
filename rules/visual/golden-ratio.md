@@ -4,6 +4,9 @@ title: "Golden Ratio"
 category: "visual"
 priority: "low"
 tldr: "The golden ratio (1:1.618) produces a modest, context-dependent aesthetic preference. For organic and human forms the effect is measurable. For UI layout it is a useful proportioning heuristic, not a universal guarantee of beauty."
+tags:
+  - visual
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7626396582451186966?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DW38gZ4Cko7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

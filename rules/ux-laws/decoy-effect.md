@@ -4,6 +4,10 @@ title: "Decoy Effect"
 category: "ux-laws"
 priority: "medium"
 tldr: "Adding an asymmetrically dominated third option (the decoy) reliably shifts user preference toward the target option. Used in almost every SaaS pricing table."
+tags:
+  - ux-law
+  - conversion
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7620473207685909782?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWO2JTUimTR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

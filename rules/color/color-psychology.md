@@ -4,6 +4,10 @@ title: "Color Psychology"
 category: "color"
 priority: "medium"
 tldr: "Colors trigger automatic emotional responses. These are culturally shaped, not universal."
+tags:
+  - color
+  - branding
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7605000518359928086"
   instagram: "https://www.instagram.com/reel/DUje_dlDakf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

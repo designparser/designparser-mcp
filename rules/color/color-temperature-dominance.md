@@ -4,6 +4,9 @@ title: "Color Temperature Dominance"
 category: "color"
 priority: "medium"
 tldr: "Avoid equal areas of warm (red, orange, yellow) and cool (blue, green, blue-violet) hues. A balanced 50/50 split forces the viewer’s brain to resolve conflicting depth planes, which can undermine hierarchy, readability, and visual impact."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7617944669833465110?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DV9TABeCs_A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

@@ -4,6 +4,9 @@ title: "Simultaneous Contrast"
 category: "color"
 priority: "medium"
 tldr: "The same color appears different depending on its surrounding colors. Adjacent hues shift each other toward their opponent color, and lightness readings are never absolute."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7620093498355666208?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWMOIpSjUrR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

@@ -4,6 +4,10 @@ title: "Emphasis"
 category: "visual"
 priority: "high"
 tldr: "Emphasis is the deliberate differentiation of one element through contrast. Without a clear hierarchy of emphasis, everything competes and nothing is found."
+tags:
+  - visual
+  - web
+  - layout
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7623814369352224022?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWmCBkrip_W/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

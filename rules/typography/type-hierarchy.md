@@ -4,6 +4,10 @@ title: "Type Hierarchy"
 category: "typography"
 priority: "high"
 tldr: "Minimum 1.25x ratio between adjacent heading levels. Body at 16px. H1 at approximately 49px."
+tags:
+  - typography
+  - reading
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7609037820056947990?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DU_f4IeCix7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

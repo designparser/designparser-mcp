@@ -4,6 +4,11 @@ title: "All Caps Fatigue"
 category: "typography"
 priority: "medium"
 tldr: "All caps is 9.5-19% slower to read (Tinker 1955). It removes word shape recognition."
+tags:
+  - typography
+  - reading
+  - web
+  - accessibility
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7592338757697785110"
   instagram: "https://www.instagram.com/p/DTLoF7GjT2V/"

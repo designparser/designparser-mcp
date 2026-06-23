@@ -1,7 +1,7 @@
 ---
 id: "wcag-navigation"
 title: "WCAG Navigation & Page Structure"
-category: "interaction"
+category: "navigation"
 priority: "high"
 tldr: "Pages need descriptive titles (SC 2.4.2 A). Links must convey their purpose from text alone or in context (SC 2.4.4 A). Headings and labels describe topic or purpose (SC 2.4.6 AA). Repeated navigation appears in the same relative order across pages (SC 3.2.3 AA). Identical functions are identified consistently (SC 3.2.4 AA)."
 tags:

@@ -4,6 +4,10 @@ title: "Center Bias"
 category: "ux-laws"
 priority: "medium"
 tldr: "Attention gravitates toward the center. First fixation lands ~10% above the geometric midpoint (~40% from top). See also: optical-center for visual balance of single elements."
+tags:
+  - ux-law
+  - web
+  - layout
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7605322323612290326?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DUlt_3gDV9X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

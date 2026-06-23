@@ -4,6 +4,9 @@ title: "Rule of Odds"
 category: "visual"
 priority: "low"
 tldr: "Odd numbers of elements (3, 5, 7) are perceived as more natural and visually stable than even numbers. Pairs create tension; triads create balance."
+tags:
+  - visual
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7619366621886369046?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWHKvRwih0A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

@@ -1,7 +1,7 @@
 ---
 id: "wcag-motion"
 title: "WCAG Flashing & Motion"
-category: "interaction"
+category: "motion"
 priority: "critical"
 tldr: "Content must not flash more than 3 times per second unless below the general flash and red flash thresholds (SC 2.3.1 A). Motion animation triggered by interaction must be disableable unless essential (SC 2.3.3 AAA)."
 tags:

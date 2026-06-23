@@ -4,6 +4,10 @@ title: "Baseline Grid"
 category: "spacing"
 priority: "medium"
 tldr: "4px base for typographic rhythm. Line heights must be multiples of 4."
+tags:
+  - spacing
+  - typography
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7587058135047687446"
   instagram: "https://www.instagram.com/p/DSm--D1DWfo/"

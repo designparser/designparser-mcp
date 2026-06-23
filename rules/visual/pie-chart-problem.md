@@ -4,6 +4,10 @@ title: "Pie Chart Problem"
 category: "visual"
 priority: "medium"
 tldr: "Pie charts ask readers to compare angles and arc lengths, two of the least accurate perceptual tasks. Use them only for part-to-whole relationships with five or fewer clearly distinct slices."
+tags:
+  - visual
+  - data-dense
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7628254476947836182?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DXE11vvCj1m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

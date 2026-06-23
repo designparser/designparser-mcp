@@ -4,6 +4,9 @@ title: "Color Constancy"
 category: "color"
 priority: "medium"
 tldr: "The visual system compensates for changes in ambient lighting and maintains perceived object color. UI colors can appear dramatically different in sunlight, artificial light, or night mode. The design must account for this."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7625298152353959190?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWwU3Y7iqNY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

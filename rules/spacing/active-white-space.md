@@ -4,6 +4,10 @@ title: "Active White Space"
 category: "spacing"
 priority: "medium"
 tldr: "Active white space is intentional, designed emptiness that guides attention and signals hierarchy. Passive white space fills gaps by default. Only active white space communicates."
+tags:
+  - spacing
+  - layout
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7622685895493274902?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWeMxLJiuxk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

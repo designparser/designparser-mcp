@@ -4,6 +4,10 @@ title: "Optical Center"
 category: "visual"
 priority: "medium"
 tldr: "The visual center of a rectangle sits roughly 2-6% above its geometric midpoint (~44% from top, print convention, not a validated digital standard). CSS `align-items: center` positions at 50%; the eye reads that as below center."
+tags:
+  - visual
+  - layout
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7613432532129860886?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVqxz6GigrQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

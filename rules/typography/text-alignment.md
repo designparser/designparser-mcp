@@ -4,6 +4,11 @@ title: "Text Alignment"
 category: "typography"
 priority: "high"
 tldr: "Left-align body text for predictable return sweeps. Justified text can fail WCAG 2.2 SC 1.4.8 (AAA) on the web; centered text is limited to 1-3 lines."
+tags:
+  - typography
+  - reading
+  - web
+  - accessibility
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7611204591891270934?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVOiVYpivR6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

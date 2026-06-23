@@ -10,7 +10,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
 import yaml from "js-yaml";
-import { VALID_TAGS } from "../src/types.js";
+import { VALID_TAGS, CATEGORIES } from "../src/types.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,10 +32,7 @@ function resolveRulesDir(fromDir: string): string {
 
 const rulesDir = resolveRulesDir(__dirname);
 
-const VALID_CATEGORIES = [
-  "color", "typography", "spacing", "shadows",
-  "ux-laws", "interaction", "icons", "visual", "print",
-];
+const VALID_CATEGORIES = Object.keys(CATEGORIES);
 
 const VALID_PRIORITIES = ["critical", "high", "medium", "low"];
 

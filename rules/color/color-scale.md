@@ -4,6 +4,9 @@ title: "Color Scale"
 category: "color"
 priority: "medium"
 tldr: "100-900 scale, start at 500, define edges first, fill the gaps."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7584844219630636310?is_from_webapp=1&sender_device=pc&web_id=7517983817683764759"
   instagram: "https://www.instagram.com/p/DSYeolGiNXL/"

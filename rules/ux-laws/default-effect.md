@@ -4,6 +4,11 @@ title: "Default Effect"
 category: "ux-laws"
 priority: "medium"
 tldr: "Users tend to keep pre-selected options (d = 0.68, 58 studies, 73,675 participants). This status-quo bias, which makes defaults effective nudges, also renders pre-checked consent checkboxes legally invalid under GDPR."
+tags:
+  - ux-law
+  - conversion
+  - form
+  - web
 videoUrls:
   tiktok: ""
   instagram: "https://www.instagram.com/reel/DVtihFXCrK1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

@@ -4,6 +4,9 @@ title: "Typeface vs. Font"
 category: "typography"
 priority: "medium"
 tldr: "A typeface is the design system (e.g. Helvetica); a font is one specific instance within it (e.g. Helvetica Neue Bold 700). Variable Fonts collapse many instances into one file with continuous axes."
+tags:
+  - typography
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7611659784151960855?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DVRr80kCkYA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

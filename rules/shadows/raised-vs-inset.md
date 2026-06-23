@@ -4,6 +4,9 @@ title: "Raised vs. Inset"
 category: "shadows"
 priority: "medium"
 tldr: "Raised: shadow below + light top edge. Inset: shadow above + dark top edge."
+tags:
+  - shadow
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7598687398247009558"
   instagram: "https://www.instagram.com/p/DT3rY5ajS4U/"

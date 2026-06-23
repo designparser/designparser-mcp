@@ -4,6 +4,10 @@ title: "4pt System"
 category: "spacing"
 priority: "medium"
 tldr: "Half-step of the 8pt grid. For typography and icons. Not a replacement for 8pt."
+tags:
+  - spacing
+  - web
+  - typography
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7596838167811067158?is_from_webapp=1&sender_device=pc&web_id=7517983817683764759"
   instagram: "https://www.instagram.com/p/DTq2LqNjdSJ/"

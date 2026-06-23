@@ -4,6 +4,9 @@ title: "Color Naming"
 category: "color"
 priority: "medium"
 tldr: "Primitives store values. Semantics define meaning. Never use raw hex in designs."
+tags:
+  - color
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7590118285107105046?is_from_webapp=1&sender_device=pc&web_id=7517983817683764759"
   instagram: "https://www.instagram.com/p/DS8PMNeDc9f/"

@@ -4,6 +4,11 @@ title: "Line Length"
 category: "typography"
 priority: "high"
 tldr: "50-75 CPL for body text. Max 80 CPL per WCAG 2.2. Use max-width: 65ch in CSS."
+tags:
+  - typography
+  - reading
+  - web
+  - accessibility
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7606406598478564630?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DUtPYGCjdbv/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

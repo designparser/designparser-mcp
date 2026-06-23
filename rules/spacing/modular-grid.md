@@ -4,6 +4,11 @@ title: "Modular Grid"
 category: "spacing"
 priority: "medium"
 tldr: "Columns + rows create a matrix. Best for dashboards, editorials, and product grids."
+tags:
+  - spacing
+  - layout
+  - web
+  - data-dense
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7587058135047687446"
   instagram: "https://www.instagram.com/p/DSm--D1DWfo/"

@@ -15,7 +15,7 @@ import { fileURLToPath, URL } from "url";
 import { loadRules, type LoadedRule } from "./loader.js";
 import { searchRules, suggestRulesForContext } from "./search.js";
 import { formatRule, formatRuleShort } from "./formatter.js";
-import { CATEGORIES, PRIORITY_ORDER, PRIORITY_MAP, PRIORITY_LABEL } from "./types.js";
+import { CATEGORIES, PRIORITY_ORDER, PRIORITY_LABEL } from "./types.js";
 
 const { version } = JSON.parse(
   fs.readFileSync(new URL("../../package.json", import.meta.url), "utf-8")
@@ -78,22 +78,37 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
     {
       name: "list_rules",
+      title: "List Design Rules",
       description:
-        "List all available design rules, optionally filtered by category. Returns IDs and TL;DRs grouped by category.",
+        "List all available design rules, optionally filtered by category, priority level, or tags. Returns IDs and TL;DRs grouped by category. Use this to browse — for task-specific suggestions use suggest_rules_for_context.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
       inputSchema: {
         type: "object",
         properties: {
           category: {
             type: "string",
-            description: `Filter by category key. Available: ${Object.keys(CATEGORIES).join(", ")}. Leave empty to list all.`,
+            enum: Object.keys(CATEGORIES),
+            description: `Filter by category. Available: ${Object.keys(CATEGORIES).join(", ")}.`,
+          },
+          priority: {
+            type: "string",
+            enum: ["critical", "high", "medium", "low"],
+            description: 'Filter by priority level. E.g. "critical" returns only the most essential rules (accessibility, safety).',
+          },
+          tags: {
+            type: "array",
+            items: { type: "string" },
+            description: 'Filter by tags (OR logic). E.g. ["accessibility", "mobile"] returns rules tagged with either. Available tags include: web, mobile, accessibility, typography, color, spacing, layout, interaction, icons, visual, ux-law, branding, reading, shadow, navigation, form, button, card.',
           },
         },
       },
     },
     {
       name: "get_rule",
+      title: "Get Rule Details",
       description:
-        "Get the full content of a specific design rule — deep dive, examples, key numbers, sources, and designparser video links.",
+        "Get the full deep-dive content of one specific design rule by ID — includes the rule, the why, when it breaks, practical guidance, key numbers, and sources. Use this after finding a rule ID via list_rules, search_rules, or suggest_rules_for_context.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
       inputSchema: {
         type: "object",
         properties: {
@@ -108,8 +123,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: "search_rules",
+      title: "Search Design Rules",
       description:
-        "Fuzzy-search across all design rules by keyword. Searches title, TL;DR, rule text and practical guidance. Returns ranked results.",
+        "Fuzzy-search across all design rules by keyword. Use this when you know a specific term (e.g. \"contrast\", \"kerning\", \"z-index\"). Prefer suggest_rules_for_context when you have a design task description rather than a specific keyword.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
       inputSchema: {
         type: "object",
         properties: {
@@ -124,8 +141,10 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     },
     {
       name: "suggest_rules_for_context",
+      title: "Suggest Rules for Task",
       description:
-        "Given a design task or context description, returns the most relevant design rules to apply. Use this before evaluating a design or starting a design task.",
+        "Given a design task or context description, returns the most relevant design rules to consult. Use this BEFORE starting to design or review something — it maps your task to the right rules automatically. Prefer this over search_rules when you have a task description (e.g. 'mobile checkout form') rather than a specific keyword.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
       inputSchema: {
         type: "object",
         properties: {
@@ -139,9 +158,29 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       },
     },
     {
-      name: "evaluate_design",
+      name: "get_rules_batch",
+      title: "Get Multiple Rules",
       description:
-        "Evaluate a design description, screenshot context, HTML/CSS, or Figma output against relevant design rules. Returns a structured checklist of which rules apply, what to check, and what violations to look for. The AI then applies this to the actual design.",
+        "Get full deep-dive content for multiple design rules in one call. Use this after suggest_rules_for_context or evaluate_design when you want the complete details (In Practice, Key Numbers, sources) for several rules at once. Avoids multiple get_rule calls. Max 8 IDs per call.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
+      inputSchema: {
+        type: "object",
+        properties: {
+          ids: {
+            type: "array",
+            items: { type: "string" },
+            description: 'Array of rule IDs, e.g. ["wcag-contrast", "millers-law", "touch-target"]. Max 8.',
+          },
+        },
+        required: ["ids"],
+      },
+    },
+    {
+      name: "evaluate_design",
+      title: "Evaluate Design",
+      description:
+        "Given a design description, screenshot context, HTML/CSS, or Figma output, returns a structured priority-ordered checklist of which design rules apply and what violations to look for. Use this when you have an existing design to audit. For starting a new design, use suggest_rules_for_context instead.",
+      annotations: { readOnlyHint: true, idempotentHint: true },
       inputSchema: {
         type: "object",
         properties: {
@@ -153,7 +192,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
           focus: {
             type: "string",
             description:
-              'Optional. Narrow the evaluation to a specific area: "color", "typography", "spacing", "interaction", "accessibility". Leave empty for a full audit.',
+              `Optional. Narrow the evaluation to a specific area. Supported values: ${
+                ["color", "typography", "spacing", "layout", "interaction", "icons",
+                 "visual", "shadow", "motion", "forms", "navigation", "media",
+                 "print", "accessibility", "branding", "mobile"].join(", ")
+              }. Leave empty for a full audit.`,
           },
         },
         required: ["context"],
@@ -169,9 +212,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   // --- list_rules ---
   if (name === "list_rules") {
-    const filterKey = (args?.category as string | undefined)
-      ?.toLowerCase()
-      .trim();
+    const filterKey = (args?.category as string | undefined)?.toLowerCase().trim();
+    const filterPriority = (args?.priority as string | undefined)?.toLowerCase().trim();
+    const filterTags = args?.tags as string[] | undefined;
 
     if (filterKey && !CATEGORIES[filterKey]) {
       return {
@@ -187,22 +230,38 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const grouped: Record<string, typeof allRules> = {};
     for (const rule of allRules) {
       if (filterKey && rule.category !== filterKey) continue;
+      if (filterPriority && rule.priority !== filterPriority) continue;
+      if (filterTags?.length && !filterTags.some((t) => rule.tags?.includes(t))) continue;
       if (!grouped[rule.category]) grouped[rule.category] = [];
       grouped[rule.category].push(rule);
     }
 
     const filteredCount = Object.values(grouped).reduce((sum, r) => sum + r.length, 0);
     const categoryCount = Object.keys(grouped).length;
+
+    const activeFilters = [
+      filterKey ? `category: ${filterKey}` : null,
+      filterPriority ? `priority: ${filterPriority}` : null,
+      filterTags?.length ? `tags: ${filterTags.join(", ")}` : null,
+    ].filter(Boolean).join(" · ");
+
     const lines: string[] = [
       `# designparser — Design Rules`,
-      `${filteredCount} rules across ${categoryCount} categories.\n`,
+      activeFilters ? `**Filters:** ${activeFilters}` : "",
+      `${filteredCount} rule(s) across ${categoryCount} categor${categoryCount === 1 ? "y" : "ies"}.\n`,
       `Use \`get_rule\` with any ID for full details.\n`,
-    ];
+    ].filter((l) => l !== "");
+
+    if (filteredCount === 0) {
+      return {
+        content: [{ type: "text", text: `No rules match${activeFilters ? ` (${activeFilters})` : ""}. Try removing one filter or use \`list_rules\` without filters.` }],
+      };
+    }
 
     for (const [catKey, rules] of Object.entries(grouped)) {
       lines.push(`\n## ${CATEGORIES[catKey] ?? catKey}`);
       for (const r of rules) {
-        lines.push(`- **\`${r.id}\`** — ${r.title}: ${r.tldr}`);
+        lines.push(`- **\`${r.id}\`** [${r.priority}] — ${r.title}: ${r.tldr}`);
       }
     }
 
@@ -263,7 +322,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     const output = [
       `# Search: "${query}" — ${matches.length} result(s)\n`,
-      `Use \`get_rule\` with an ID for full details.\n`,
+      `Each entry includes TL;DR and practical guidance. Use \`get_rules_batch\` with multiple IDs or \`get_rule\` for a single rule to get full sources and deeper context.\n`,
       ...matches.map(formatRuleShort),
     ];
 
@@ -292,11 +351,40 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const lines = [
       `# Relevant rules for: "${task}"`,
       ``,
-      `${suggestions.length} rules identified. Use \`get_rule\` for full details on any of them.\n`,
+      `${suggestions.length} rules identified. Each entry includes TL;DR, practical guidance (→), and key number where available. Use \`get_rules_batch\` with multiple IDs for full sources and deeper context.\n`,
       ...suggestions.map(formatRuleShort),
     ];
 
     return { content: [{ type: "text", text: lines.join("\n") }] };
+  }
+
+  // --- get_rules_batch ---
+  if (name === "get_rules_batch") {
+    const ids = args?.ids as string[] | undefined;
+    if (!ids?.length) {
+      return { content: [{ type: "text", text: 'Provide an array of rule IDs, e.g. ["wcag-contrast", "millers-law"].' }] };
+    }
+
+    const capped = ids.slice(0, 8);
+    const found: string[] = [];
+    const missing: string[] = [];
+
+    for (const rawId of capped) {
+      const rule = ruleById.get(rawId.toLowerCase().trim());
+      if (!rule) {
+        missing.push(rawId);
+      } else {
+        found.push(formatRule(rule));
+      }
+    }
+
+    const parts: string[] = [`# Rules (${found.length}/${capped.length} found)\n`];
+    found.forEach((r, i) => parts.push(i > 0 ? `\n---\n\n${r}` : r));
+    if (missing.length) {
+      parts.push(`\n---\n\nNot found: ${missing.map((id) => `\`${id}\``).join(", ")}. Use \`list_rules\` to browse valid IDs.`);
+    }
+
+    return { content: [{ type: "text", text: parts.join("") }] };
   }
 
   // --- evaluate_design ---
@@ -313,13 +401,25 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const focusCatMap: Record<string, string> = {
       color: "color", colour: "color",
       typography: "typography", type: "typography",
-      spacing: "spacing", layout: "spacing",
+      spacing: "spacing",
+      layout: "layout", grid: "layout",
       interaction: "interaction",
       icons: "icons",
+      visual: "visual",
+      shadows: "shadows", shadow: "shadows", depth: "shadows", elevation: "shadows",
+      motion: "motion", animation: "motion",
+      forms: "forms", form: "forms",
+      navigation: "navigation", nav: "navigation",
+      media: "media", images: "media",
+      print: "print",
     };
     const focusTagMap: Record<string, string> = {
       accessibility: "accessibility",
       a11y: "accessibility",
+      wcag: "accessibility",
+      branding: "branding",
+      reading: "reading",
+      mobile: "mobile",
     };
 
     const relevant = suggestRulesForContext(allRules, context + (focus ? ` ${focus}` : ""));
@@ -359,12 +459,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           ...(rule.whenItBreaks?.slice(0, 1) ?? []),
         ].slice(0, 3);
 
-        sections.push([
+        const entry = [
           `### ${rule.title} (\`${rule.id}\`)`,
           `> ${rule.tldr}`,
           ...checks.map((c) => `- [ ] ${c}`),
-          "",
-        ].join("\n"));
+        ];
+        if (rule.inPractice?.[0]) entry.push(`**→** ${rule.inPractice[0]}`);
+        if (rule.keyNumbers?.[0]) entry.push(`**${rule.keyNumbers[0].value}** — ${rule.keyNumbers[0].label}`);
+        entry.push("");
+        sections.push(entry.join("\n"));
       }
     }
 
@@ -391,8 +494,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       ``,
       `**How to use this checklist:**`,
       `- Work top-down — fix critical issues first`,
-      `- Use \`get_rule <id>\` for full details, key numbers, and sources`,
-      `- Re-run evaluate_design after fixing critical issues to see what changes`,
+      `- Each item includes the practical fix (→) and key number where available`,
+      `- Use \`get_rule <id>\` or \`get_rules_batch\` for full sources and deeper context`,
+      `- Re-run \`evaluate_design\` after fixing critical issues to see what changes`,
     ];
 
     return { content: [{ type: "text", text: lines.join("\n") }] };

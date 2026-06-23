@@ -4,6 +4,10 @@ title: "Visual Weight"
 category: "visual"
 priority: "high"
 tldr: "Six factors determine visual weight: size, saturation, luminance contrast, position, isolation, and shape."
+tags:
+  - visual
+  - layout
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7607920218022661398?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DU3vm-UjR-B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

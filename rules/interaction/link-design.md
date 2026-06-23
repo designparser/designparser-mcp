@@ -4,6 +4,11 @@ title: "Link Design"
 category: "interaction"
 priority: "medium"
 tldr: "Underline is the universal affordance. Visited state is required. Inline links are not the same as standalone links."
+tags:
+  - interaction
+  - web
+  - link
+  - accessibility
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7595329775829372182?is_from_webapp=1&sender_device=pc&web_id=7605204772584801814"
   instagram: "https://www.instagram.com/reel/DTgbgtsDWtG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

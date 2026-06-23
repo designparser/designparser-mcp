@@ -4,6 +4,10 @@ title: "12-Column Grid"
 category: "spacing"
 priority: "medium"
 tldr: "12 columns divide cleanly into halves, thirds, quarters, and sixths. This flexibility makes it the dominant grid convention in web layout systems, from Bootstrap to Material Design."
+tags:
+  - spacing
+  - layout
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7629381166847495446?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DXMqS0rCtLL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

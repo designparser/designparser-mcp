@@ -4,6 +4,9 @@ title: "Shadow Fundamentals"
 category: "shadows"
 priority: "high"
 tldr: "Single light source from above. Shadows always point down. Depth starts with edges, not shadows."
+tags:
+  - shadow
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7597574236005289238"
   instagram: "https://www.instagram.com/p/DTv9DGRjafS/"

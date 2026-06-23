@@ -4,6 +4,10 @@ title: "Peak-End Rule"
 category: "ux-laws"
 priority: "medium"
 tldr: "People judge an experience almost entirely by how they felt at its most intense moment and at its end. The average is irrelevant. Design the peak and the ending deliberately."
+tags:
+  - ux-law
+  - onboarding
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7625651937467305248?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DWyyT8QDadE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

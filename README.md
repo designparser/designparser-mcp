@@ -8,13 +8,13 @@ By [designparser](https://designparser.de) — *Parsed, not guessed.*
 
 ## What it does
 
-55+ design rules across 9 categories, available as AI tools.
+77 design rules across 14 categories, available as AI tools. Every rule has a TL;DR, practical guidance with concrete values, key numbers, and verifiable sources.
 
 **Example:**
 > *"I'm designing a mobile navigation. What rules apply?"*
-> → returns touch-target minimums, Miller's Law, Hick's Law, interaction guidelines — prioritized, with sources
+> → returns touch-target minimums, Miller's Law, Hick's Law, WCAG navigation requirements — prioritized, with practical CSS values and sources
 
-**Categories:** `color` · `typography` · `spacing` · `shadows` · `ux-laws` · `interaction` · `icons` · `visual` · `print`
+**Categories:** `color` · `typography` · `spacing` · `layout` · `shadows` · `ux-laws` · `interaction` · `icons` · `visual` · `motion` · `forms` · `navigation` · `media` · `print`
 
 ---
 
@@ -77,11 +77,14 @@ Point Claude Desktop to your local build:
 
 | Tool | Description |
 |---|---|
-| `list_rules` | Browse all rules, optionally filtered by category |
+| `list_rules` | Browse all rules — filter by category, priority, or tags |
 | `get_rule` | Full rule — deep dive, key numbers, sources, video links |
+| `get_rules_batch` | Full deep-dive for multiple rules in one call (max 8) |
 | `search_rules` | Fuzzy search across all rules and content |
-| `suggest_rules_for_context` | Describe your design task → get the relevant rules |
-| `evaluate_design` | Describe a UI or paste HTML/CSS → prioritized audit checklist |
+| `suggest_rules_for_context` | Describe your design task → get the relevant rules with practical guidance |
+| `evaluate_design` | Describe a UI or paste HTML/CSS → prioritized audit checklist with fixes |
+
+All tools are read-only (`readOnlyHint: true`) — no side effects.
 
 ---
 
@@ -100,19 +103,30 @@ To force Claude to always use the knowledge base, add this to your Claude Deskto
 ## Usage examples
 
 ```
-// Browse
+// Browse all critical rules
+"What are the most important rules I should never break?"
+→ list_rules priority="critical"
+
+// Browse by category
 "Show me all typography rules"
 → list_rules category="typography"
+
+// Browse by tag
+"Show me all accessibility rules"
+→ list_rules tags=["accessibility"]
 
 // Lookup
 "What are the WCAG contrast requirements?"
 → get_rule "wcag-contrast"
 
+// Batch lookup — get multiple rules at once
+→ get_rules_batch ids=["wcag-contrast", "touch-target", "millers-law"]
+
 // Search
 "What does research say about touch targets?"
 → search_rules "touch target"
 
-// Context-aware
+// Context-aware — returns rules with practical guidance inline
 "I'm designing a mobile navigation bar. What rules apply?"
 → suggest_rules_for_context "mobile navigation bar"
 
@@ -121,18 +135,28 @@ To force Claude to always use the knowledge base, add this to your Claude Deskto
 [paste CSS]
 → evaluate_design
 
-// Screenshot audit
-"I'll describe what I see in this dashboard screenshot — audit it"
-→ evaluate_design focus="spacing"
+// Focused audit
+"I'll describe what I see in this dashboard screenshot — audit accessibility"
+→ evaluate_design focus="accessibility"
 ```
+
+---
+
+## How `suggest_rules_for_context` works
+
+Describe what you're designing and the tool returns the most relevant rules — ranked by priority, with TL;DR, practical guidance (→), and key numbers inline. No follow-up `get_rule` calls needed for most tasks.
+
+![suggest_rules_for_context example — mobile checkout form](docs/suggest-rules-example.png)
 
 ---
 
 ## How `evaluate_design` works
 
-You describe the design (or Claude describes what it sees in a screenshot) — the tool returns a prioritized checklist of relevant rules to check, sorted critical → high → medium → low.
+Describe the design (or paste HTML/CSS) — the tool returns a prioritized checklist sorted critical → high → medium → low. Each item includes the rule ID, what to check, the practical fix, and the key number where applicable.
 
-Claude then applies those rules to the actual design. The MCP provides the knowledge; the AI does the evaluation. No fake scoring.
+Claude applies the checklist to your actual design. The MCP provides the knowledge; the AI does the evaluation. No fake scoring.
+
+![evaluate_design example — mobile app audit](docs/evaluate-design-example.png)
 
 ---
 
@@ -144,10 +168,10 @@ All rules are in `rules/<category>/<rule-id>.md`. Each rule includes:
 |---|---|
 | `id` | Kebab-case identifier |
 | `title` | Rule name |
-| `category` | One of 9 categories |
+| `category` | One of 14 categories |
 | `priority` | `critical` / `high` / `medium` / `low` |
 | `tldr` | One-sentence summary |
-| `tags` | Platform and context tags for better search |
+| `tags` | Platform and context tags for better search and filtering |
 | `related_rules` | IDs of related rules |
 | `sources` | Verifiable references with year |
 | Body sections | The Rule · Why · When It Breaks · In Practice · Key Numbers |
@@ -167,28 +191,6 @@ This is a community project. The code is open, the rule content is curated by de
 Every PR runs automated validation — schema errors block merging, so check locally first with `npm run validate`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full details.
-
----
-
-## Before / After example
-
-```
-Design: mobile product page, small buttons, low contrast text
-
-evaluate_design →
-
-🔴 Critical (1)
-  wcag-contrast — AA requires 4.5:1 for body text
-  [ ] Check text/background contrast ratio
-  [ ] Use a contrast checker before shipping
-
-🟠 High (3)
-  touch-target — minimum 44×44px for interactive elements
-  type-hierarchy — establish clear size/weight relationships
-  8pt-grid — all spacing should be multiples of 8
-
-→ Fix contrast and touch targets first.
-```
 
 ---
 

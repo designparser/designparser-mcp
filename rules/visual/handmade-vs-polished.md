@@ -4,6 +4,10 @@ title: "Handmade vs. Polished"
 category: "visual"
 priority: "medium"
 tldr: "Polished design signals competence. Handmade, imperfect design signals authenticity and warmth. Neither is universally better. Context determines which builds trust with a given audience."
+tags:
+  - visual
+  - branding
+  - web
 videoUrls:
   tiktok: "https://www.tiktok.com/@designparser/video/7627139296289361174?is_from_webapp=1&sender_device=pc&web_id=7621951402788800022"
   instagram: "https://www.instagram.com/reel/DW9GTY-iv2B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="

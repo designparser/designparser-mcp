@@ -41,7 +41,7 @@
   "homepage": "https://github.com/designparser/designparser-mcp#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/designparser/designparser-mcp.git"
+    "url": "git+https://github.com/designparser/designparser-mcp.git"
   },
   "bugs": {
     "url": "https://github.com/designparser/designparser-mcp/issues"
